@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./app.js" type="module" defer></script>
+    <title>Cadastro de Contatos</title>
+</head>
+<body>
+    <main>
+        <h1>Cadastar Contato</h1>
+        <div class="dados-pessoais"> 
+            <input id="inserir-nome" type="text" placeholder="Nome">
+            <input id="inserir-celular" type="number" min="0" placeholder="Celular">
+            <input id="inserir-email" type="text" placeholder="E-mail">
+            <input id="inserir-endereco" type="text" placeholder="Endereço">
+            <input id="inserir-cidade" type="text" placeholder="Cidade">
+            <input id="inserir-url" type="url" placeholder="Foto">
+        </div>
+        <div>
+            <button id="botao-salvar">SALVAR</button>
+        </div>
+        <div class="lista=contatos">
+            <h2>Contatos Cadastrados</h2>
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Celular</th>
+                    <th>E-mail</th>
+                    <th>Endereço</th>
+                    <th>Cidade</th>
+                    <th>Foto</th>
+                    <th>Editar / Deletar</th>
+                </thead>
+                <tbody id="tabela-contatos">
+                    <tr>
+                        <td>1</td>
+                        <td>Joao</td>
+                        <td>123124324</td>
+                        <td>joao@gmail.com</td>
+                        <td>Elton silva ...</td>
+                        <td>Jandira</td>
+                        <td>
+                            <a href="https://thumbs.dreamstime.com/b/%C3%ADcone-do-perfil-avatar-defeito-105356015.jpg">Imagem</a>
+                        </td>
+                        <td>
+                            <button>Editar</button>
+                            <button>Deletar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
