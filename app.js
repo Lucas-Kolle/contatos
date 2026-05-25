@@ -83,12 +83,16 @@ const montarTabela = async function(){
         const tdFoto = document.createElement("td")
         tdFoto.textContent = contato.foto
 
-        //adicionando botões na tabela (deletar / editar)
+        //criando célula para guardar os botões
         const tdAcao = document.createElement("td")
+
+        //criando os botões e colocando nome correto (deletar / editar)
         const botaoEditar = document.createElement("button")
         botaoEditar.textContent = "EDITAR"
         const botaoDeletar = document.createElement("button")
         botaoDeletar.textContent = "DELETAR"
+
+        //colocando os botões nas células corretas
         tdAcao.appendChild(botaoEditar)
         tdAcao.appendChild(botaoDeletar)
 
