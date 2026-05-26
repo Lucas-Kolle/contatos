@@ -89,8 +89,12 @@ const montarTabela = async function(){
         //criando os botões e colocando nome correto (deletar / editar)
         const botaoEditar = document.createElement("button")
         botaoEditar.textContent = "EDITAR"
+        botaoEditar.addEventListener("click", atualizarContato)
+
         const botaoDeletar = document.createElement("button")
         botaoDeletar.textContent = "DELETAR"
+        botaoDeletar.addEventListener("click", deletarContato)
+
 
         //colocando os botões nas células corretas
         tdAcao.appendChild(botaoEditar)
@@ -103,6 +107,16 @@ const montarTabela = async function(){
 
 }
 
+
+//função para atualizar um contato
+const atualizarContato = async function(){
+
+
+}
+
+const deletarContato = async function(){
+    
+}
 
 botaoSalvar.addEventListener("click", coletarDados)
 montarTabela()
