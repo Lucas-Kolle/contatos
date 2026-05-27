@@ -1,56 +1,85 @@
+// Link do backend hospedado no Render
+const URL = 'https://bakcend-fecaf-render.onrender.com/contatos';
 
-//link do deploy no render 
-const URL = 'https://bakcend-fecaf-render.onrender.com/contatos'
-
-//função para buscar todos os contatos cadastrados
+// Função para buscar todos os contatos cadastrados
 export async function getContatos() {
-    const response = await fetch(URL)
+    // Faz uma requisição GET para a URL base
+    const response = await fetch(URL);
 
-    if (!response.ok) throw new Error('Erro ao criar um novo contato!')
-    return response.json()
+    // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) throw new Error('Erro ao criar um novo contato!');
+
+    // Retorna os dados da resposta convertidos para JSON
+    return response.json();
 }
 
-//função para buscar um contato pelo id
+// Função para buscar um contato pelo ID
 export async function getContato(id) {
-    const response = await fetch(`${URL}/${id}`)
-    if (!response.ok) throw new Error(`Erro ao listar o contato ${id}!`)
-    return response.json()
+    // Faz uma requisição GET para a URL com o ID do contato
+    const response = await fetch(`${URL}/${id}`);
+
+    // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) throw new Error(`Erro ao listar o contato ${id}!`);
+
+    // Retorna os dados da resposta convertidos para JSON
+    return response.json();
 }
 
-//função para cadastrar um contato
+// Função para cadastrar um novo contato
 export async function postContato(contato) {
+    // Configurações da requisição POST
     const options = {
-        method: "POST",
+        method: "POST", // Define o método HTTP como POST
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json' // Define o tipo de conteúdo como JSON
         },
-        body: JSON.stringify(contato)
-    }
-    const response = await fetch(URL, options)
-    if (!response.ok) throw new Error('Error ao criar um novo contato!')
-    return response.json()
+        body: JSON.stringify(contato) // Converte o objeto contato para uma string JSON
+    };
+
+    // Faz a requisição POST para a URL base com as opções configuradas
+    const response = await fetch(URL, options);
+
+    // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) throw new Error('Error ao criar um novo contato!');
+
+    // Retorna os dados da resposta convertidos para JSON
+    return response.json();
 }
 
-//função para atualizar um contato
-export async function putContato(id, contato){
+// Função para atualizar um contato existente
+export async function putContato(id, contato) {
+    // Configurações da requisição PUT
     const options = {
-        method: "PUT",
+        method: "PUT", // Define o método HTTP como PUT
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json' // Define o tipo de conteúdo como JSON
         },
-        body: JSON.stringify(contato)
-    }
-    const response = await fetch(`${URL}/${id}`, options)
-    if(!response.ok) throw new Error(`Error ao atualizar o contato!`)
-        return response.json()
+        body: JSON.stringify(contato) // Converte o objeto contato para uma string JSON
+    };
+
+    // Faz a requisição PUT para a URL com o ID do contato
+    const response = await fetch(`${URL}/${id}`, options);
+
+    // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) throw new Error(`Error ao atualizar o contato!`);
+
+    // Retorna os dados da resposta convertidos para JSON
+    return response.json();
 }
 
-//função para deletar um contato
-export async function deleteContato(id){
+// Função para deletar um contato pelo ID
+export async function deleteContato(id) {
+    // Configurações da requisição DELETE
     const options = {
-        method: "DELETE"
-    } 
-    const response = await fetch(`${URL}/${id}`, options)
-    if(!response.ok) throw new Error(`Error ao excluir  o contato!`)
-        return true
+        method: "DELETE" // Define o método HTTP como DELETE
+    };
+
+    // Faz a requisição DELETE para a URL com o ID do contato
+    const response = await fetch(`${URL}/${id}`, options);
+
+    // Verifica se a resposta foi bem-sucedida
+    if (!response.ok) throw new Error(`Error ao excluir o contato!`);
+
+    // Retorna true para indicar que a exclusão foi bem-sucedida
+    return true;
 }
